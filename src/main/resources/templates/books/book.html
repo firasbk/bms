@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books page</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+</head>
+<body>
+<p>
+    <span><a class="btn btn-primary" href="#" th:href="@{/books}"> Books</a></span>
+    <span><a class="btn btn-primary" href="#" th:href="@{/publishers}">Publishers</a></span>
+</p>
+    <h2 class="display-2 my-3">Details</h2>
+    <dl class="row">
+
+        <dt class="col-sm-3">Title</dt>
+        <dd class="col-sm-9" th:text="${book.title != null} ? ${book.title} : 'None'">Title</dd>
+
+        <dt class="col-sm-3">Author</dt>
+        <dd class="col-sm-9" th:text="${book.author != null} ? ${book.author} : 'None'">Author</dd>
+
+        <dt class="col-sm-3">Publisher</dt>
+        <dd class="col-sm-9" th:text="${book.publisher.name != null} ? ${book.publisher.name} : 'None'">Some publisher</dd>
+
+        <dt class="col-sm-3">Genre</dt>
+        <dd class="col-sm-9" th:text="${book.genre.name != null} ? ${book.genre.name} : 'None'">genre</dd>
+
+
+    </dl>
+
+    <p>
+        <a class="btn btn-primary" href="#" role="button" th:href="@{/books/{id}/edit(id=${book.id})}">Edit</a>
+        <a class="btn btn-outline-danger" href="#" th:href="@{/books/{id}/delete(id=${book.id})}" role="button">Delete</a>
+    </p>
+</body>

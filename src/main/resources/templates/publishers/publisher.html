@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+</head>
+<body>
+<p>
+    <span><a class="btn btn-primary" href="#" th:href="@{/books}"> Books</a></span>
+    <span><a class="btn btn-primary" href="#" th:href="@{/publishers}">Publishers</a></span>
+</p>
+<h2 class="display-2 my-3">Details</h2>
+<dl class="row">
+
+    <dt class="col-sm-3">Title</dt>
+    <dd class="col-sm-9" th:text="${publisher.name != null} ? ${publisher.name} : 'None'">Name</dd>
+
+    <dt class="col-sm-3">Author</dt>
+    <dd class="col-sm-9" th:text="${publisher.address != null} ? ${publisher.address} : 'None'">Address</dd>
+
+</dl>
+
+<p>
+    <a class="btn btn-primary" href="#" role="button" th:href="@{/publishers/{id}/edit(id=${publisher.id})}">Edit</a>
+    <a class="btn btn-outline-danger" href="#" th:href="@{/publishers/{id}/delete(id=${publisher.id})}" role="button">Delete</a>
+</p>
+</body>
+</html>
